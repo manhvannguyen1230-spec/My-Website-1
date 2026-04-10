@@ -362,7 +362,7 @@
         let isModelLoaded = false;
         let isModelInScene = false; // Track if model is already in scene
         
-        gltfLoader.load('assets/models/NEW room.glb', function(gltf) {
+        gltfLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775804242/NEW_room.glb', function(gltf) {
             if (isModelLoaded || isModelLoading) {
                 return;
             }
@@ -395,7 +395,7 @@
             
             if (screenObject) {
                 const video = document.createElement('video');
-                video.src = 'assets/videos/Blue, Green and Black Minimalist Geometric All About Me Video.mp4';
+                video.src = 'https://res.cloudinary.com/dedvqh5jb/video/upload/v1775804291/intro_video.mp4';
                 video.loop = true;
                 video.muted = true;
                 video.playsInline = true;
@@ -4608,7 +4608,7 @@
             
             // Load EXR environment map with progress tracking
             const startTime = performance.now();
-            exrLoader.load('assets/models/qwantani_sunset_puresky_4k.exr', function(texture) {
+            exrLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775804617/qwantani_sunset.exr', function(texture) {
                 const loadTime = performance.now() - startTime;
                 console.log(`HDRI loaded in ${loadTime.toFixed(0)}ms`);
                 updateEnvironmentMap(texture);
