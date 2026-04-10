@@ -4625,14 +4625,27 @@
             }, function(error) {
                 // Fallback lighting when EXR fails to load
                 console.warn('EXR failed, using fallback lighting');
-                const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+                // Switch to simpler tone mapping so lights appear bright
+                renderer.toneMapping = THREE.LinearToneMapping;
+                renderer.toneMappingExposure = 1.8;
+                // Strong ambient light to fill the whole scene
+                const ambientLight = new THREE.AmbientLight(0xffffff, 3.0);
                 scene.add(ambientLight);
-                const dirLight = new THREE.DirectionalLight(0xffffff, 2.0);
+                // Key light
+                const dirLight = new THREE.DirectionalLight(0xffffff, 4.0);
                 dirLight.position.set(5, 10, 7);
                 scene.add(dirLight);
-                const dirLight2 = new THREE.DirectionalLight(0xffd5a8, 1.0);
+                // Fill light
+                const dirLight2 = new THREE.DirectionalLight(0xffd5a8, 2.5);
                 dirLight2.position.set(-5, 5, -5);
                 scene.add(dirLight2);
+                // Back light
+                const dirLight3 = new THREE.DirectionalLight(0xa8d5ff, 1.5);
+                dirLight3.position.set(0, -5, -10);
+                scene.add(dirLight3);
+                // Hemisphere light for natural sky/ground color
+                const hemiLight = new THREE.HemisphereLight(0xffeebb, 0x444422, 2.0);
+                scene.add(hemiLight);
                 window.assetsLoaded.environment = true;
                 window.hideLoadingScreen();
             });
