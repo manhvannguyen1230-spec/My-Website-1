@@ -2219,8 +2219,9 @@
                 
                 // Check if thumbnail is an image path or gradient
                 const isImage = item.thumbnail && (item.thumbnail.includes('.avif') || item.thumbnail.includes('.jpg') || item.thumbnail.includes('.png') || item.thumbnail.includes('.gif') || item.thumbnail.includes('.webp'));
-                const imageHTML = isImage 
-                    ? `<img src="${item.thumbnail}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;" />`
+                const encodedThumb = isImage ? item.thumbnail.split('/').map(s => encodeURIComponent(s)).join('/') : item.thumbnail;
+                const imageHTML = isImage
+                    ? `<img src="${encodedThumb}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;" />`
                     : `<div style="width: 100%; height: 100%; background: ${item.thumbnail}; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.125rem;">${imageText}</div>`;
                 
                 card.innerHTML = `
