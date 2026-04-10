@@ -4,6 +4,7 @@
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
         import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
+        import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
         // Scene setup
@@ -4520,6 +4521,7 @@
             pmremGenerator.compileEquirectangularShader();
             
             const exrLoader = new EXRLoader();
+            const rgbeLoader = new RGBELoader();
             
             // Function to update environment map
             function updateEnvironmentMap(texture) {
@@ -4609,7 +4611,7 @@
             
             // Load EXR environment map with progress tracking
             const startTime = performance.now();
-            exrLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775804617/qwantani_sunset.exr', function(texture) {
+            rgbeLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775808551/qwantani_sunset_2k.hdr', function(texture) {
                 const loadTime = performance.now() - startTime;
                 console.log(`HDRI loaded in ${loadTime.toFixed(0)}ms`);
                 updateEnvironmentMap(texture);
