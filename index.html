@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Environment Scene</title>
+    <!-- Preconnect to CDN for faster loading -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <!-- Google Fonts - Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <!-- Backdrop Overlay -->
+    <div class="popup-backdrop" id="popup-backdrop"></div>
+    
+    <!-- Navigation Bar -->
+    <nav id="main-nav">
+        <a href="#home" class="nav-item active" id="nav-home">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span class="nav-item-text">Home</span>
+        </a>
+        
+        <a href="#about" class="nav-item" id="nav-about">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="nav-item-text">About me</span>
+        </a>
+        
+        <a href="#works" class="nav-item" id="nav-works">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span class="nav-item-text">My Projects</span>
+        </a>
+        
+        <a href="#contact" class="nav-item" id="nav-settings">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span class="nav-item-text">Contact Me</span>
+        </a>
+    </nav>
+    <div id="portfolio-overlay">
+        <div class="portfolio-window">
+            <div class="portfolio-titlebar">
+                <button class="titlebar-button close" id="portfolio-close-btn"></button>
+                <button class="titlebar-button minimize"></button>
+                <button class="titlebar-button maximize"></button>
+                <div class="titlebar-icon">Manh Nguyen</div>
+            </div>
+
+            <div class="portfolio-header">
+                <div class="portfolio-logo">
+                    <h1 class="portfolio-title">Selected work</h1>
+                </div>
+                <div class="portfolio-filters">
+                    <div class="filter-tag ai">
+                        <span>⬡</span> Finance services
+                    </div>
+                    <div class="filter-tag zero-to-one">
+                        <span>★</span> SAAS
+                    </div>
+                    <div class="filter-tag startup">
+                        <span>⚡</span> FNB
+                    </div>
+                    <div class="filter-tag enterprise">
+                        <span>👤</span> Onboarding
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-content">
+                <div class="projects-grid" id="portfolio-grid">
+                    <!-- Portfolio cards will be generated here -->
+                </div>
+                <div class="project-detail" id="project-detail" style="display: none;">
+                    <button class="back-button" id="project-back-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Back
+                    </button>
+                    <div class="project-detail-content" id="project-detail-content">
+                        <!-- Project detail content will be generated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="about-me-overlay">
+        <div class="portfolio-window">
+            <div class="portfolio-titlebar">
+                <button class="titlebar-button close" id="about-me-close-btn"></button>
+                <button class="titlebar-button minimize"></button>
+                <button class="titlebar-button maximize"></button>
+                <div class="titlebar-icon">Manh Nguyen</div>
+            </div>
+
+            <div class="portfolio-header">
+                <div class="portfolio-logo">
+                    <h1 class="portfolio-title">About me</h1>
+                </div>
+            </div>
+            <div class="portfolio-content">
+                <div id="about-me-content">
+                    <!-- About me content will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact-overlay">
+        <div class="portfolio-window">
+            <div class="portfolio-titlebar">
+                <button class="titlebar-button close" id="contact-close-btn"></button>
+                <button class="titlebar-button minimize"></button>
+                <button class="titlebar-button maximize"></button>
+                <div class="titlebar-icon">Manh Nguyen</div>
+            </div>
+
+            <div class="portfolio-header">
+                <div class="portfolio-logo">
+                    <h1 class="portfolio-title">Let's Connect!</h1>
+                    <div class="contact-status">
+                        <span class="status-indicator"></span>
+                        Available
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-content">
+                <div id="contact-content" class="contact-content">
+                    <p class="contact-description">Whether it's brainstorming a new project, discussing design optimizations, or just sharing creative insights, I'm always excited to collaborate. Reach out to me and let's craft something exceptional — together!</p>
+
+                    <div class="contact-items">
+                        <a href="mailto:manhvannguyen1230@gmail.com" class="contact-item">
+                            <div class="contact-icon email-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <span class="contact-text">manhvannguyen1230@gmail.com</span>
+                            <svg class="external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+
+                        <a href="tel:0337551297" class="contact-item">
+                            <div class="contact-icon phone-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <span class="contact-text">0337551297</span>
+                            <svg class="external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/m%E1%BA%A1nh-nguy%E1%BB%85n-9279311a4/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                            <div class="contact-icon linkedin-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </div>
+                            <span class="contact-text">LinkedIn</span>
+                            <svg class="external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loading">
+        <div id="loading-animation" class="loading-animation"></div>
+        <div>Loading...</div>
+    </div>
+    <div id="info">
+        <h3>3D Environment Controls</h3>
+        <ul>
+            <li>W/A/S/D - Move</li>
+            <li>Mouse - Look around</li>
+            <li>Space - Up</li>
+            <li>Shift - Down</li>
+        </ul>
+    </div>
+    
+    <div id="camera-info">
+        <h3>Camera Information</h3>
+        <div class="info-section">
+            <div class="info-row">
+                <span class="info-label">Position X:</span>
+                <span class="info-value" id="cam-pos-x">0.00</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Position Y:</span>
+                <span class="info-value" id="cam-pos-y">0.00</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Position Z:</span>
+                <span class="info-value" id="cam-pos-z">0.00</span>
+            </div>
+        </div>
+        <div class="info-section">
+            <div class="info-row">
+                <span class="info-label">Rotation X:</span>
+                <span class="info-value" id="cam-rot-x">0.00°</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Rotation Y:</span>
+                <span class="info-value" id="cam-rot-y">0.00°</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Rotation Z:</span>
+                <span class="info-value" id="cam-rot-z">0.00°</span>
+            </div>
+        </div>
+        <div class="info-section">
+            <div class="info-row">
+                <span class="info-label">Target X:</span>
+                <span class="info-value" id="cam-target-x">0.00</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Target Y:</span>
+                <span class="info-value" id="cam-target-y">0.00</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Target Z:</span>
+                <span class="info-value" id="cam-target-z">0.00</span>
+            </div>
+        </div>
+    </div>
+    
+    <div id="objects-panel">
+        <h3>3D Model Groups</h3>
+        <div id="objects-panel-controls">
+            <button id="show-all-btn">Show All</button>
+            <button id="hide-all-btn">Hide All</button>
+        </div>
+        <input type="text" id="objects-search" placeholder="Search objects...">
+        <div id="objects-list">
+            <p style="color: #999; font-size: 11px; text-align: center; padding: 20px;">Loading objects...</p>
+        </div>
+        <div class="objects-stats" id="objects-stats">Objects: 0</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" onload="window.lottieLoaded = true;"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- External JavaScript -->
+    <script type="module" src="js/main.js"></script>
+    <script>
+        // Track animation loops and loading state (global for module access)
+        window.animationLoopCount = 0;
+        window.minLoopsRequired = 2;
+        window.assetsLoaded = { model: false, environment: false };
+        window.loadingAnimation = null;
+        
+        // Function to check if we can hide loading screen
+        function canHideLoadingScreen() {
+            return window.assetsLoaded.model && window.assetsLoaded.environment && window.animationLoopCount >= window.minLoopsRequired;
+        }
+        
+        // Function to hide loading screen
+        function hideLoadingScreen() {
+            const loadingEl = document.getElementById('loading');
+            if (loadingEl && canHideLoadingScreen()) {
+                loadingEl.classList.add('hidden');
+            }
+        }
+        
+        // Make functions globally accessible
+        window.canHideLoadingScreen = canHideLoadingScreen;
+        window.hideLoadingScreen = hideLoadingScreen;
+        
+        // Initialize Lottie animation for loading page
+        function initializeLottieAnimation() {
+            const animationContainer = document.getElementById('loading-animation');
+            if (!animationContainer) {
+                console.warn('Loading animation container not found');
+                return;
+            }
+            
+            // Check if Lottie is loaded
+            if (typeof lottie === 'undefined' || !window.lottieLoaded) {
+                console.warn('Lottie library not loaded, retrying...');
+                setTimeout(initializeLottieAnimation, 100);
+                return;
+            }
+            
+            try {
+                window.loadingAnimation = lottie.loadAnimation({
+                    container: animationContainer,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'data/eyes.json'
+                });
+                
+                // Track loop count
+                window.loadingAnimation.addEventListener('loopComplete', function() {
+                    window.animationLoopCount++;
+                    // Check if we can hide loading screen after each loop
+                    if (canHideLoadingScreen()) {
+                        hideLoadingScreen();
+                    }
+                });
+                
+                // Handle errors
+                window.loadingAnimation.addEventListener('data_failed', function() {
+                    console.error('Failed to load Lottie animation data from data/eyes.json');
+                    console.error('Check if the file exists at: data/eyes.json');
+                });
+                
+                window.loadingAnimation.addEventListener('loaded_data', function() {
+                    console.log('Lottie animation loaded successfully');
+                });
+                
+                // Set loop mode explicitly
+                window.loadingAnimation.setLoop(true);
+            } catch (error) {
+                console.error('Error initializing Lottie animation:', error);
+            }
+        }
+        
+        // Wait for DOM and Lottie library to be ready
+        function startLottieInitialization() {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(initializeLottieAnimation, 200);
+                });
+            } else {
+                // DOM is already ready, wait for Lottie to load
+                setTimeout(initializeLottieAnimation, 200);
+            }
+        }
+        
+        // Start initialization
+        startLottieInitialization();
+    </script>
+
+</body>
+</html>
+

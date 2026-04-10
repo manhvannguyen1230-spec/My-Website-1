@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static Web Server",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/tmp/serve_3d.py", "8080"],
+      "port": 8080
+    }
+  ]
+}
