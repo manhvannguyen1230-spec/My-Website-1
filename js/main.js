@@ -1378,7 +1378,7 @@
             {
                 title: "Stock Price Board for Gen Z",
                 description: "Redesigned DNSE's stock price board for Gen Z users, making complex market data simple and approachable through a friendlier, more intuitive interface.",
-                thumbnail: "assets/images/Bảng giá/herro banner bảng giá.webp",
+                thumbnail: "assets/images/bang-gia/herro-banner.webp",
                 badges: ["Case Study", "Product Design"],
                 filters: ["product", "design"],
                 fullContent: true
@@ -2472,7 +2472,7 @@
                         </div>
                         <div class="project-hero-banner">
                             <div class="project-hero-banner__image">
-                                <img src="assets/images/Bảng giá/herro banner bảng giá.webp" alt="GenZ Stock Price Board - Hero Banner" class="project-hero-banner__img" />
+                                <img src="assets/images/bang-gia/herro-banner.webp" alt="GenZ Stock Price Board - Hero Banner" class="project-hero-banner__img" />
                             </div>
                         </div>
                         <div class="project-overview">
@@ -2517,7 +2517,7 @@
                             </ul>
                             <p class="project-lead">This generation expects <strong>fast, clear, and visually intuitive digital experiences</strong>.</p>
                             <div class="project-section__image">
-                                <img src="assets/images/Bảng giá/Target Users Bang gia.webp" alt="GenZ Target Users" class="project-section__img" />
+                                <img src="assets/images/bang-gia/target-users.webp" alt="GenZ Target Users" class="project-section__img" />
                             </div>
                         </div>
                         <div class="project-section">
@@ -2554,7 +2554,7 @@
                                 <li>Use <strong>modern, high-contrast visuals</strong> tailored to Gen Z</li>
                             </ul>
                             <div class="project-section__image">
-                                <img src="assets/images/Bảng giá/Ideate – Brainstorming Solutions.webp" alt="Brainstorming Solutions for GenZ Price Board" class="project-section__img" />
+                                <img src="assets/images/bang-gia/ideate-brainstorming.webp" alt="Brainstorming Solutions for GenZ Price Board" class="project-section__img" />
                             </div>
                         </div>
                         <div class="project-section">
@@ -2575,7 +2575,7 @@
                             </ul>
                             <p><strong>80% of participants</strong> preferred Version 2 for its modern look, emotional connection, and easier scanning.</p>
                             <div class="project-section__image">
-                                <img src="assets/images/Bảng giá/A:b Testing .webp" alt="A/B Testing Concepts for GenZ Price Board" class="project-section__img" />
+                                <img src="assets/images/bang-gia/ab-testing.webp" alt="A/B Testing Concepts for GenZ Price Board" class="project-section__img" />
                             </div>
                         </div>
                         <div class="project-section">
@@ -2600,7 +2600,7 @@
                                 </div>
                             </div>
                             <div class="project-section__image">
-                                <img src="assets/images/Bảng giá/Card&list.webp" alt="Card and List View of GenZ Stock Board" class="project-section__img" />
+                                <img src="assets/images/bang-gia/card-list.webp" alt="Card and List View of GenZ Stock Board" class="project-section__img" />
                             </div>
                         </div>
                         <div class="project-section">
@@ -2613,7 +2613,7 @@
                                 <li>Optimized performance for slower mobile networks</li>
                             </ul>
                             <div class="project-section__image">
-                                <img src="assets/images/Bảng giá/Mobile.webp" alt="Optimized Mobile Interface" class="project-section__img" />
+                                <img src="assets/images/bang-gia/mobile.webp" alt="Optimized Mobile Interface" class="project-section__img" />
                             </div>
                         </div>
                         <div class="project-section">
@@ -2625,7 +2625,7 @@
                                 <li><strong>Consistent across views:</strong> Works in both Card and List layouts.</li>
                             </ul>
                             <div class="project-section__image">
-                                <img src="assets/images/Bảng giá/Stock details & Quick market.gif" alt="Stock Details & Quick Market Overview" class="project-section__gif" />
+                                <img src="assets/images/bang-gia/stock-details.gif" alt="Stock Details & Quick Market Overview" class="project-section__gif" />
                             </div>
                         </div>
                         <div class="project-section">
@@ -2636,7 +2636,7 @@
                                 <li><strong>Performance View:</strong> Trends over multiple time ranges, with drilldowns into sectors.</li>
                             </ul>
                             <div class="project-section__image">
-                                <img src="assets/images/Bảng giá/Industry Heatmap & Performance View.gif" alt="Industry Heatmap & Performance View" class="project-section__gif" />
+                                <img src="assets/images/bang-gia/industry-heatmap.gif" alt="Industry Heatmap & Performance View" class="project-section__gif" />
                             </div>
                         </div>
                         <div class="project-section">
@@ -2648,7 +2648,7 @@
                                 <li>Designed around a &quot;<strong>10-second market insight</strong>&quot; experience</li>
                             </ul>
                             <div class="project-section__image">
-                                <img src="assets/images/Bảng giá/Market Tracking.webp" alt="Market Tracking Overview" class="project-section__img" />
+                                <img src="assets/images/bang-gia/market-tracking.webp" alt="Market Tracking Overview" class="project-section__img" />
                             </div>
                         </div>
                         <div class="project-section">
