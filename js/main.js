@@ -4527,7 +4527,7 @@
 
             // Always set RoomEnvironment as base so scene is never dark
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 2.0;
+            renderer.toneMappingExposure = 1.4;
             const roomEnv = new RoomEnvironment();
             const roomEnvMap = pmremGenerator.fromScene(roomEnv).texture;
             scene.environment = roomEnvMap;
