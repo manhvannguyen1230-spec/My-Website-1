@@ -6,6 +6,7 @@
         import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
         import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
         // Scene setup
         const scene = new THREE.Scene();
@@ -4523,19 +4524,14 @@
             const exrLoader = new EXRLoader();
             const rgbeLoader = new RGBELoader();
 
-            // Always add base lights so scene is never dark
+            // Always set RoomEnvironment as base so scene is never dark
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 1.2;
-            const basAmbient = new THREE.AmbientLight(0xffffff, 2.0);
-            scene.add(basAmbient);
-            const basDir = new THREE.DirectionalLight(0xffeedd, 3.0);
-            basDir.position.set(5, 10, 7);
-            scene.add(basDir);
-            const basDir2 = new THREE.DirectionalLight(0xaaccff, 1.5);
-            basDir2.position.set(-5, 3, -5);
-            scene.add(basDir2);
-            const basHemi = new THREE.HemisphereLight(0xffeebb, 0x553322, 1.5);
-            scene.add(basHemi);
+            renderer.toneMappingExposure = 1.0;
+            const roomEnv = new RoomEnvironment();
+            const roomEnvMap = pmremGenerator.fromScene(roomEnv).texture;
+            scene.environment = roomEnvMap;
+            scene.background = new THREE.Color(0x1a1a1a);
+            roomEnv.dispose();
 
             // Function to update environment map
             function updateEnvironmentMap(texture) {
