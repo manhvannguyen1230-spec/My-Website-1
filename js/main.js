@@ -4621,7 +4621,7 @@
             
             // Load EXR environment map with progress tracking
             const startTime = performance.now();
-            rgbeLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775808551/qwantani_sunset_2k.hdr', function(texture) {
+            rgbeLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775809341/sunset_env.hdr', function(texture) {
                 const loadTime = performance.now() - startTime;
                 console.log(`HDRI loaded in ${loadTime.toFixed(0)}ms`);
                 updateEnvironmentMap(texture);
