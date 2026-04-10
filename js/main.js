@@ -4622,7 +4622,16 @@
                     }
                 }
             }, function(error) {
-                // Even on error, mark as loaded and check if we can hide
+                // Fallback lighting when EXR fails to load
+                console.warn('EXR failed, using fallback lighting');
+                const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+                scene.add(ambientLight);
+                const dirLight = new THREE.DirectionalLight(0xffffff, 2.0);
+                dirLight.position.set(5, 10, 7);
+                scene.add(dirLight);
+                const dirLight2 = new THREE.DirectionalLight(0xffd5a8, 1.0);
+                dirLight2.position.set(-5, 5, -5);
+                scene.add(dirLight2);
                 window.assetsLoaded.environment = true;
                 window.hideLoadingScreen();
             });
