@@ -4528,7 +4528,7 @@
             // Always set RoomEnvironment as base so scene is never dark
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
             renderer.toneMappingExposure = 1.0;
-            const roomEnv = new RoomEnvironment(0.5); // softer intensity
+            const roomEnv = new RoomEnvironment(0.2); // softer intensity
             const roomEnvMap = pmremGenerator.fromScene(roomEnv).texture;
             scene.environment = roomEnvMap;
             scene.background = new THREE.Color(0x1a1a1a);
