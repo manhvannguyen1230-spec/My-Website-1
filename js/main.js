@@ -395,6 +395,7 @@
             
             if (screenObject) {
                 const video = document.createElement('video');
+                video.crossOrigin = 'anonymous';
                 video.src = 'https://res.cloudinary.com/dedvqh5jb/video/upload/v1775804291/intro_video.mp4';
                 video.loop = true;
                 video.muted = true;

@@ -266,7 +266,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: url('./macbook-gradient-wallpaper-macos-windows-colorful-rainbow-dark-16-10-2024-1729104040-hd-wallpaper.jpg');
+            background-image: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
             background-size: 120% 120%;
             background-position: center;
             background-repeat: no-repeat;
@@ -314,7 +314,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: url('./macbook-gradient-wallpaper-macos-windows-colorful-rainbow-dark-16-10-2024-1729104040-hd-wallpaper.jpg');
+            background-image: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
             background-size: 120% 120%;
             background-position: center;
             background-repeat: no-repeat;
@@ -1618,7 +1618,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: url('./macbook-gradient-wallpaper-macos-windows-colorful-rainbow-dark-16-10-2024-1729104040-hd-wallpaper.jpg');
+            background-image: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
             background-size: 120% 120%;
             background-position: center;
             background-repeat: no-repeat;
