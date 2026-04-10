@@ -4527,8 +4527,8 @@
 
             // Always set RoomEnvironment as base so scene is never dark
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 1.7;
-            const roomEnv = new RoomEnvironment();
+            renderer.toneMappingExposure = 1.0;
+            const roomEnv = new RoomEnvironment(0.5); // softer intensity
             const roomEnvMap = pmremGenerator.fromScene(roomEnv).texture;
             scene.environment = roomEnvMap;
             scene.background = new THREE.Color(0x1a1a1a);
@@ -4622,7 +4622,7 @@
             
             // Load EXR environment map with progress tracking
             const startTime = performance.now();
-            rgbeLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775809474/neutral_env.hdr', function(texture) {
+            rgbeLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775811442/warm_sunset.hdr', function(texture) {
                 const loadTime = performance.now() - startTime;
                 console.log(`HDRI loaded in ${loadTime.toFixed(0)}ms`);
                 updateEnvironmentMap(texture);
