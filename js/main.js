@@ -4620,7 +4620,8 @@
                 }
             }
             
-            // Load EXR environment map with progress tracking
+            // Warm sunset HDR disabled — using neutral RoomEnvironment only
+            if (false) {
             const startTime = performance.now();
             rgbeLoader.load('https://res.cloudinary.com/dedvqh5jb/raw/upload/v1775811442/warm_sunset.hdr', function(texture) {
                 const loadTime = performance.now() - startTime;
@@ -4662,6 +4663,9 @@
                 window.assetsLoaded.environment = true;
                 window.hideLoadingScreen();
             });
+            } // end if(false) — warm HDR disabled
+            window.assetsLoaded.environment = true;
+            window.hideLoadingScreen();
         }, 50); // Small delay to allow initial render
 
         // Handle window resize
