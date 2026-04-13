@@ -4526,12 +4526,12 @@
             const rgbeLoader = new RGBELoader();
 
             // Always set RoomEnvironment as base so scene is never dark
-            renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 0.8;
-            const roomEnv = new RoomEnvironment(1.6); // bright white lighting
+            renderer.toneMapping = THREE.LinearToneMapping;
+            renderer.toneMappingExposure = 0.4;
+            const roomEnv = new RoomEnvironment(0.8); // cool neutral lighting
             const roomEnvMap = pmremGenerator.fromScene(roomEnv).texture;
             scene.environment = roomEnvMap;
-            scene.background = new THREE.Color(757488);
+            scene.background = new THREE.Color(0x1a1f2e);
             roomEnv.dispose();
 
             // Function to update environment map
