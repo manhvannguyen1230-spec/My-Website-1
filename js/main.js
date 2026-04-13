@@ -446,23 +446,6 @@
                 window.screenVideoTexture = videoTexture;
             }
             
-            // Apply photo texture to poster/frame object
-            const photoTextureLoader = new THREE.TextureLoader();
-            photoTextureLoader.load('assets/images/New My Image.png', function(photoTexture) {
-                photoTexture.colorSpace = THREE.SRGBColorSpace;
-                photoTexture.flipY = false;
-                roomModel.traverse(function(child) {
-                    if (child.isMesh && isPosterObject(child)) {
-                        child.material = new THREE.MeshBasicMaterial({
-                            map: photoTexture,
-                            toneMapped: false,
-                            side: THREE.DoubleSide
-                        });
-                        child.material.needsUpdate = true;
-                    }
-                });
-            });
-
             // Center and scale the model if needed
             const box = new THREE.Box3().setFromObject(roomModel);
             const center = box.getCenter(new THREE.Vector3());
